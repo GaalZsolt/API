@@ -5,12 +5,13 @@ async function main(){
 
     let url = "https://randomuser.me/api/";
     let szotar = await olvaso_fetch(url);
-    console.log(szotar['fact']);
+    
+    
+    
 
     macskafaktdiv.innerHTML=szotar.fact;
 
 }
-
 
 async function olvaso_fetch(url){
     let promise = await fetch(url);
