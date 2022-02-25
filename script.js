@@ -13,7 +13,7 @@ async function main(){
     aktdiv.innerHTML=szotar.dob.age;
     
     aktdiv = document.querySelector('#nat');
-    aktdiv.innerHTML='<img src="https://flagcdn.com/h24/cm.png" alt="Flag"></img>';
+    aktdiv.innerHTML='<img src="https://flagcdn.com/h24/' + szotar.nat.toLowerCase() + '.png" alt="Flag"></img>';
     
 
 
@@ -27,9 +27,7 @@ async function olvaso_fetch(url){
     let promise_json = await promise.json();
     return promise_json;
 }
-/*
-<img src="https://flagcdn.com/h24/cm.png" alt="Flag"></img>
-*/
+
 
 /*
 {
