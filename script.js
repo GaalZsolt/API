@@ -9,6 +9,9 @@ async function main(){
     let aktdiv = document.querySelector('#name');
     aktdiv.innerHTML=szotar.name.title + " " + szotar.name.first + " " + szotar.name.last;
     
+    aktdiv = document.querySelector('#pfp');
+    aktdiv.src = szotar.picture.large;
+
     aktdiv = document.querySelector('#age');
     aktdiv.innerHTML=szotar.dob.age;
 
