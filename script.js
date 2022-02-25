@@ -1,15 +1,24 @@
 document.addEventListener('DOMContentLoaded', main)
 
 async function main(){
-    let macskafaktdiv = document.querySelector('#macskafakt');
-
+    
     let url = "https://randomuser.me/api/";
-    let szotar = await olvaso_fetch(url);
+    let szotar = (await olvaso_fetch(url)).results[0];
     
     
+    let aktdiv = document.querySelector('#name');
+    aktdiv.innerHTML=szotar.name.title + " " + szotar.name.first + " " + szotar.name.last;
+    
+    aktdiv = document.querySelector('#age');
+    aktdiv.innerHTML=szotar.dob.age;
+    
+    aktdiv = document.querySelector('#nat');
+    aktdiv.innerHTML='<img src="https://flagcdn.com/h24/cm.png" alt="Flag"></img>';
     
 
-    macskafaktdiv.innerHTML=szotar.fact;
+
+
+
 
 }
 
@@ -19,9 +28,7 @@ async function olvaso_fetch(url){
     return promise_json;
 }
 /*
-<img
-    src="https://flagcdn.com/h24/cm.png"
-  alt="Flag"></img>
+<img src="https://flagcdn.com/h24/cm.png" alt="Flag"></img>
 */
 
 /*
