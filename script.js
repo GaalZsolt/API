@@ -11,11 +11,27 @@ async function main(){
     
     aktdiv = document.querySelector('#age');
     aktdiv.innerHTML=szotar.dob.age;
+
+    aktdiv = document.querySelector('#age');
+    aktdiv.innerHTML=szotar.dob.age;
     
     aktdiv = document.querySelector('#nat');
     aktdiv.innerHTML='<img src="https://flagcdn.com/h24/' + szotar.nat.toLowerCase() + '.png" alt="Flag"></img>';
     
+    aktdiv = document.querySelector('#email');
+    aktdiv.innerHTML=szotar.email;
 
+    aktdiv = document.querySelector('#mobile');
+    aktdiv.innerHTML=szotar.cell;
+
+    aktdiv = document.querySelector('#age');
+    aktdiv.innerHTML=szotar.dob.age;
+
+    aktdiv = document.querySelector('#age');
+    aktdiv.innerHTML=szotar.dob.age;
+
+    aktdiv = document.querySelector('#age');
+    aktdiv.innerHTML=szotar.dob.age;
 
 
 
