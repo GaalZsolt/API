@@ -1,0 +1,9 @@
+*{
+    margin:0;
+    padding:0;
+}
+#nagy-grid-container{
+    display:grid;
+    grid-template-rows: 30% 10% 60%;
+
+}
