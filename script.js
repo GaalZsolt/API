@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', main)
 
+
 async function main(){
     
     let url = "https://randomuser.me/api/";
@@ -15,7 +16,7 @@ async function main(){
     aktdiv.innerHTML="(" + szotar.dob.age + ")";
 
     aktdiv = document.querySelector('#dob');
-    aktdiv.innerHTML=szotar.dob.date;
+    aktdiv.innerHTML=new Date(szotar.dob.date).toLocaleDateString();
     
     aktdiv = document.querySelector('#email');
     aktdiv.innerHTML=szotar.email;
@@ -30,8 +31,13 @@ async function main(){
     aktdiv.innerHTML='<img src="https://flagcdn.com/h24/' + szotar.nat.toLowerCase() + '.png" alt="Flag"></img>';
     
 
-
 }
+
+
+
+
+
+
 
 async function olvaso_fetch(url){
     let promise = await fetch(url);
