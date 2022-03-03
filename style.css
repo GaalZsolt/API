@@ -16,16 +16,17 @@
     height: 100%;
 }
 #details > #personal-data{
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: auto;
-    grid-template-areas: 
-    "nat name age dob"
-    "email . . mobile"
-    "bio bio bio bio";
+    display: flex;
+    justify-content: space-between;
+}
+#personal-data > #left{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    align-items: center;
 }
 #personal-data > #dob{
-    
+    align-self: flex-end;
 }
 #details > #reach{
     display: flex;
