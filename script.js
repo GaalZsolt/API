@@ -19,10 +19,10 @@ async function main(){
     
     aktdiv = document.querySelector('#email');
     aktdiv.innerHTML=szotar.email;
-    
+    /*
     aktdiv = document.querySelector('bio');
     aktdiv.innerHTML=szotar;
-    
+    */
     aktdiv = document.querySelector('#mobile');
     aktdiv.innerHTML=szotar.cell;
     
