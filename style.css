@@ -2,14 +2,28 @@
     margin:0;
     padding:0;
 }
-#nagy-grid-container{
-    display:grid;
-    grid-template-rows: 30% 10% 60%;
-    
-    
-    
+#nagy-flex-container{
+    display:flex;    
+    flex-direction: column;
 }
-
-
-
-
+#about{
+    display: flex;
+    flex-direction: row;
+}
+#about > #details{
+    display: flex;
+    flex-direction: column;
+}
+#details > #personal-data{
+    display: flex;
+    flex-direction: row;
+}
+#details > #reach{
+    display: flex;
+    flex-direction: row;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
