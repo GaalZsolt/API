@@ -17,6 +17,12 @@
 }
 #details > #personal-data{
     display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "nat name age dob"
+    "email . . mobile"
+    "bio bio bio bio";
 }
 #personal-data > #dob{
     
