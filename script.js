@@ -12,7 +12,7 @@ async function main(){
     aktdiv.innerHTML=szotar.name.title + " " + szotar.name.first + " " + szotar.name.last;
     
     aktdiv = document.querySelector('#age');
-    aktdiv.innerHTML=szotar.dob.age;
+    aktdiv.innerHTML="(" + szotar.dob.age + ")";
 
     aktdiv = document.querySelector('#dob');
     aktdiv.innerHTML=szotar.dob.date;
