@@ -13,10 +13,10 @@
 #about > #details{
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 #details > #personal-data{
-    display: flex;
-    flex-direction: row;
+    display: grid;
 }
 #personal-data > #dob{
     
