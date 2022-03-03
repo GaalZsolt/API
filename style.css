@@ -1,0 +1,39 @@
+*{
+    margin:0;
+    padding:0;
+}
+#nagy-flex-container{
+    display:flex;    
+    flex-direction: column;
+}
+#about{
+    display: flex;
+    flex-direction: row;
+}
+#about > #details{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+#details > #personal-data{
+    display: flex;
+    justify-content: space-between;
+}
+#personal-data > #left{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    align-items: center;
+}
+#personal-data > #dob{
+    align-self: flex-end;
+}
+#details > #reach{
+    display: flex;
+    flex-direction: row;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
