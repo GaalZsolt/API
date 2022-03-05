@@ -1,129 +1,27 @@
-* GENERAL */ * {
+/* GENERAL */
+* {
     margin: 0;
     padding: 0;
 }
-body {
-    background-color: lightcyan;
+
+/*HEADER*/
+header {
+    position: fixed;
+    top: 0;
 }
 
-#nagy-flex-container {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* ABOUT */
-#nagy-flex-container > #about {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-
-    background-color: lightslategray;
-    margin: 0% 15% 0% 15%;
-    padding: 0.2%;
-    border: 5px solid black;
-    border-radius: 10px;
-}
-#nagy-flex-container > #about > #pfpdiv {
-    align-self: center;
-}
-#nagy-flex-container > #about > #details {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    gap: 10px;
-}
-#nagy-flex-container > #about > #details > #personal-data {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-#nagy-flex-container > #about > #details > #personal-data > #left {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-}
-#nagy-flex-container > #about > #details > #reach a,
-#nagy-flex-container > #about > #details > #reach a:visited,
-#nagy-flex-container > #about > #details > #reach a:active {
-    color: black;
-    text-decoration: none;
-}
-#nagy-flex-container > #about > #details > #reach a:hover {
-    color: darkblue;
-    transition: 500ms;
-}
-#nagy-flex-container > #about > #details > #personal-data > #left > #name {
-    font-size: x-large;
-}
-#nagy-flex-container > #about > #details > #personal-data > #dob {
-    align-self: flex-end;
-    font-size: large;
-}
-
-/* NAV BAR */
-#nagy-flex-container > nav {
-    display: flex;
-    justify-content: space-evenly;
-
-    background-color: lightslategray;
-    margin: 0% 20% 0% 20%;
-    padding: 0.2%;
-    border: 5px solid black;
-    border-radius: 10px;
-}
-#nagy-flex-container > nav > div {
-    text-align: center;
-}
-#nagy-flex-container > nav a,
-#nagy-flex-container > nav a:visited,
-#nagy-flex-container > nav a:active {
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-
-    color: black;
-    text-decoration: none;
-    font-size: large;
-}
-#nagy-flex-container > nav a:hover {
-    color: blue;
-    background-color: aqua;
-    border-radius: 10px;
-    transition: 800ms;
-}
-
-/* CONTENT */
-#nagy-flex-container > #content {
-    background-color: lightslategray;
-    margin: 0% 10% 0% 10%;
-    padding: 0.2%;
-    border: 5px solid black;
-    border-radius: 10px;
-    overflow-y: scroll;
-}
-#nagy-flex-container > #content > #loadingdiv {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-}
-#nagy-flex-container > #content > #pictures {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    gap: 5px;
-}
-#nagy-flex-container > #content > #friendlist {
+/*NAGY_GRID_CONTAINER*/
+#nagy-grid-container {
     display: grid;
-    grid-template-columns: 49% 49%;
-    justify-content: center;
-    gap: 2%;
+    grid-template-columns: 33% 67%;
 }
-#nagy-flex-container > #content .friend {
+
+/*FOOTER*/
+footer {
     display: flex;
     flex-direction: row;
+    width: 100%;
     justify-content: space-between;
-    align-items: center;
+    position: fixed;
+    bottom: 0;
 }
