@@ -39,6 +39,7 @@ async function main(){
 async function generateFriends(){
     if (friendscontent == '') {
         content = document.querySelector('#content');
+        content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>'
         let friends = '<div id="friendlist">';
         
         let friendNum = getRndInteger(4,35);
@@ -72,6 +73,7 @@ async function generateFriends(){
 async function generatePics(){
     if (picturecontent == '') {
         content = document.querySelector('#content');
+        content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>'
         let pictures = '<div id="pictures">';
 
         let picNum = getRndInteger(4,35);
