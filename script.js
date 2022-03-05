@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', main)
-
+let picturecontent = '';
+let friendscontent = '';
 
 async function main(){
+    document.querySelector('#friends').addEventListener('click', generateFriends);
+    document.querySelector('#photos').addEventListener('click', generatePics);
+    let szotar = (await olvaso_fetch('https://randomuser.me/api/')).results[0];
     
-    let url = "https://randomuser.me/api/";
-    let szotar = (await olvaso_fetch(url)).results[0];
-    
+
     let aktdiv = document.querySelector('#pfp');
     aktdiv.src = szotar.picture.large;
     
@@ -19,25 +21,78 @@ async function main(){
     aktdiv.innerHTML=new Date(szotar.dob.date).toLocaleDateString();
     
     aktdiv = document.querySelector('#email');
-    aktdiv.innerHTML=szotar.email;
+    aktdiv.innerHTML='email: <a href="mailto:' + szotar.email + '">' + szotar.email + '</a>';
     
     aktdiv = document.querySelector('#bio');
-    //aktdiv.innerHTML=szotar;
+    aktdiv.innerHTML='I am ' + szotar.name.first + " " + szotar.name.last + ', a(n) ' + szotar.dob.age + ' years old ' + (szotar.gender == 'male' ? 'man' : 'lady') +
+    ' from ' + szotar.location.city + ' in ' + szotar.location.state + ', ' + szotar.location.country + '.';
     
     aktdiv = document.querySelector('#mobile');
-    aktdiv.innerHTML=szotar.cell;
+    aktdiv.innerHTML="mobile: " + szotar.cell;
     
     aktdiv = document.querySelector('#nat');
     aktdiv.innerHTML='<img src="https://flagcdn.com/h24/' + szotar.nat.toLowerCase() + '.png" alt="Flag"></img>';
     
+    await generatePics();
+}
 
+async function generateFriends(){
+    if (friendscontent == '') {
+        content = document.querySelector('#content');
+        let friends = '<div id="friendlist">';
+        
+        let friendNum = getRndInteger(4,35);
+
+        for (let i = 0; i < friendNum; i++) {
+            
+            let candidate = (await olvaso_fetch('https://randomuser.me/api/')).results[0];
+        
+            friends += '<div class="friend">';
+            
+                friends += '<div class="thumbnail">';
+                friends += '<img src="' + candidate.picture.thumbnail + '" alt="Thumbnail"></img>';
+                friends += '</div>';
+    
+                friends += '<div class="name">';
+                friends += candidate.name.first + " " + candidate.name.last;
+                friends += '</div>';
+    
+                friends += '<div class="email">';
+                friends += '<a href="mailto:' + candidate.email + '">' + candidate.email + '</a>';
+                friends += '</div>';
+            
+            friends += '</div>';
+        }
+        
+        
+        
+        friends += '</div>';
+        friendscontent = friends;
+    }
+    content.innerHTML = friendscontent;
+}
+
+async function generatePics(){
+    if (picturecontent == '') {
+        content = document.querySelector('#content');
+        let pictures = '<div id="pictures">';
+
+        let picNum = getRndInteger(4,35);
+
+        for (let i = 0; i < picNum; i++) {
+            pictures +='<img src="' + (await fetch('https://picsum.photos/200')).url + '" alt="Picture"></img>';
+        }
+
+        pictures += '</div>';
+        picturecontent = pictures;
+    }
+    content.innerHTML = picturecontent;
 }
 
 
-
-
-
-
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
 
 async function olvaso_fetch(url){
     let promise = await fetch(url);
