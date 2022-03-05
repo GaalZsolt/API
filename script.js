@@ -63,9 +63,6 @@ async function generateFriends(){
             
             friends += '</div>';
         }
-        
-        
-        
         friends += '</div>';
         friendscontent = friends;
     }
