@@ -1,40 +1,129 @@
-* {
+* GENERAL */ * {
     margin: 0;
     padding: 0;
 }
+body {
+    background-color: lightcyan;
+}
+
 #nagy-flex-container {
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
-#about {
+
+/* ABOUT */
+#nagy-flex-container > #about {
     display: flex;
     flex-direction: row;
+    gap: 10px;
+
+    background-color: lightslategray;
+    margin: 0% 15% 0% 15%;
+    padding: 0.2%;
+    border: 5px solid black;
+    border-radius: 10px;
 }
-#about > #details {
+#nagy-flex-container > #about > #pfpdiv {
+    align-self: center;
+}
+#nagy-flex-container > #about > #details {
     display: flex;
     flex-direction: column;
-    height: 100%;
     flex-grow: 1;
+    gap: 10px;
 }
-#details > #personal-data {
+#nagy-flex-container > #about > #details > #personal-data {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
-#personal-data > #left {
+#nagy-flex-container > #about > #details > #personal-data > #left {
     display: flex;
     flex-direction: row;
-    align-self: flex-start;
-    align-items: center;
+    align-items: flex-end;
 }
-#personal-data > #dob {
+#nagy-flex-container > #about > #details > #reach a,
+#nagy-flex-container > #about > #details > #reach a:visited,
+#nagy-flex-container > #about > #details > #reach a:active {
+    color: black;
+    text-decoration: none;
+}
+#nagy-flex-container > #about > #details > #reach a:hover {
+    color: darkblue;
+    transition: 500ms;
+}
+#nagy-flex-container > #about > #details > #personal-data > #left > #name {
+    font-size: x-large;
+}
+#nagy-flex-container > #about > #details > #personal-data > #dob {
     align-self: flex-end;
+    font-size: large;
 }
-#details > #reach {
+
+/* NAV BAR */
+#nagy-flex-container > nav {
     display: flex;
-    flex-direction: row;
-}
-nav {
-    display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
+
+    background-color: lightslategray;
+    margin: 0% 20% 0% 20%;
+    padding: 0.2%;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+#nagy-flex-container > nav > div {
+    text-align: center;
+}
+#nagy-flex-container > nav a,
+#nagy-flex-container > nav a:visited,
+#nagy-flex-container > nav a:active {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    color: black;
+    text-decoration: none;
+    font-size: large;
+}
+#nagy-flex-container > nav a:hover {
+    color: blue;
+    background-color: aqua;
+    border-radius: 10px;
+    transition: 800ms;
+}
+
+/* CONTENT */
+#nagy-flex-container > #content {
+    background-color: lightslategray;
+    margin: 0% 10% 0% 10%;
+    padding: 0.2%;
+    border: 5px solid black;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+#nagy-flex-container > #content > #loadingdiv {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+#nagy-flex-container > #content > #pictures {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 5px;
+}
+#nagy-flex-container > #content > #friendlist {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    justify-content: center;
+    gap: 2%;
+}
+#nagy-flex-container > #content .friend {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
