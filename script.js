@@ -1,103 +1,98 @@
-document.addEventListener('DOMContentLoaded', main)
-let picturecontent = '';
-let friendscontent = '';
+document.addEventListener("DOMContentLoaded", main)
+let picturecontent = ""
+let friendscontent = ""
 
-async function main(){
-    let szotar = (await olvaso_fetch('https://randomuser.me/api/')).results[0];
-    
-    
-    let aktdiv = document.querySelector('header');
-    aktdiv.innerHTML = '<img src="' + (await fetch('https://picsum.photos/1920/200')).url + '" alt="Picture" id="top-pic">';
-    
-    aktdiv = document.querySelector('#first-flex-row-pfp>img');
-    aktdiv.src = szotar.picture.large;
-    
-    aktdiv = document.querySelector('#basicdata-namenage');
-    aktdiv.innerHTML= '<img src="https://flagcdn.com/h24/' + szotar.nat.toLowerCase() + '.png" alt="Flag"></img>' 
-    + szotar.name.title + ' ' + szotar.name.first + ' ' + szotar.name.last + ' (' + szotar.dob.age + ')';
-    
-    aktdiv = document.querySelector('#basicdata-email');
-    aktdiv.innerHTML='email: <a href="mailto:' + szotar.email + '">' + szotar.email + '</a>';
-    
-    aktdiv = document.querySelector('#basicdata-mobile');
-    aktdiv.innerHTML="mobile: " + szotar.cell;
-    
-    await generatePics();
-    await generateFriends();
-    document.querySelector('#second-flex-row-pics').addEventListener('click', showPics);
-    document.querySelector('#second-flex-row-friends').addEventListener('click', showFriends);
-    showPics();
-    
-    
+async function main() {
+    let szotar = (await olvaso_fetch("https://randomuser.me/api/")).results[0]
+
+    let aktdiv = document.querySelector("header")
+    aktdiv.innerHTML = '<img src="' + (await fetch("https://picsum.photos/1920/200")).url + '" alt="Picture" id="top-pic">'
+
+    aktdiv = document.querySelector("#first-flex-row-pfp>#img-container>img")
+    aktdiv.src = szotar.picture.large
+
+    aktdiv = document.querySelector("#basicdata-namenage")
+    aktdiv.innerHTML =
+        '<img src="https://flagcdn.com/h24/' + szotar.nat.toLowerCase() + '.png" alt="Flag"></img>' + szotar.name.title + " " + szotar.name.first + " " + szotar.name.last + " (" + szotar.dob.age + ")"
+
+    aktdiv = document.querySelector("#basicdata-email")
+    aktdiv.innerHTML = 'email: <a href="mailto:' + szotar.email + '">' + szotar.email + "</a>"
+
+    aktdiv = document.querySelector("#basicdata-mobile")
+    aktdiv.innerHTML = "mobile: " + szotar.cell
+
+    await generatePics()
+    await generateFriends()
+    document.querySelector("#second-flex-row-pics").addEventListener("click", showPics)
+    document.querySelector("#second-flex-row-friends").addEventListener("click", showFriends)
+    showPics()
 }
 
-async function generateFriends(){
-    if (friendscontent == '') {
-        let friends = '<div id="friendlist">';
-        
-        let friendNum = getRndInteger(4,35);
+async function generateFriends() {
+    if (friendscontent == "") {
+        let friends = '<div id="friendlist">'
+
+        let friendNum = getRndInteger(4, 35)
 
         for (let i = 0; i < friendNum; i++) {
-            
-            let candidate = (await olvaso_fetch('https://randomuser.me/api/')).results[0];
-        
-            friends += '<div class="friend">';
-            
-                friends += '<div class="thumbnail">';
-                friends += '<img src="' + candidate.picture.thumbnail + '" alt="Thumbnail"></img>';
-                friends += '</div>';
-    
-                friends += '<div class="name">';
-                friends += candidate.name.first + " " + candidate.name.last;
-                friends += '</div>';
-    
-                friends += '<div class="email">';
-                friends += '<a href="mailto:' + candidate.email + '">' + candidate.email + '</a>';
-                friends += '</div>';
-            
-            friends += '</div>';
+            let candidate = (await olvaso_fetch("https://randomuser.me/api/")).results[0]
+
+            friends += '<div class="friend">'
+
+            friends += '<div class="thumbnail">'
+            friends += '<img src="' + candidate.picture.thumbnail + '" alt="Thumbnail"></img>'
+            friends += "</div>"
+
+            friends += '<div class="name">'
+            friends += candidate.name.first + " " + candidate.name.last
+            friends += "</div>"
+
+            friends += '<div class="email">'
+            friends += '<a href="mailto:' + candidate.email + '">' + candidate.email + "</a>"
+            friends += "</div>"
+
+            friends += "</div>"
         }
-        friends += '</div>';
-        friendscontent = friends;
+        friends += "</div>"
+        friendscontent = friends
     }
 }
-async function generatePics(){
-    if (picturecontent == '') {
-        let pictures = '<div id="pictures">';
+async function generatePics() {
+    if (picturecontent == "") {
+        let pictures = '<div id="pictures">'
 
-        let picNum = getRndInteger(4,35);
+        let picNum = getRndInteger(4, 35)
 
         for (let i = 0; i < picNum; i++) {
-            pictures +='<img src="' + (await fetch('https://picsum.photos/200')).url + '" alt="Picture"></img>';
+            pictures += '<img src="' + (await fetch("https://picsum.photos/200")).url + '" alt="Picture"></img>'
         }
 
-        pictures += '</div>';
-        picturecontent = pictures;
+        pictures += "</div>"
+        picturecontent = pictures
     }
 }
-function showFriends(){
-    let content = document.querySelector('#nagy-grid-container-right');
+function showFriends() {
+    let content = document.querySelector("#nagy-grid-container-right")
     do {
-        content.innerHTML = friendscontent;
-    } while (friendscontent == '');
+        content.innerHTML = friendscontent
+    } while (friendscontent == "")
 }
-function showPics(){
-    let content = document.querySelector('#nagy-grid-container-right');
+function showPics() {
+    let content = document.querySelector("#nagy-grid-container-right")
     do {
-        content.innerHTML = picturecontent;
-    } while (picturecontent == '');
+        content.innerHTML = picturecontent
+    } while (picturecontent == "")
 }
 
 function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min) ) + min;
+    return Math.floor(Math.random() * (max - min)) + min
 }
 
-async function olvaso_fetch(url){
-    let promise = await fetch(url);
-    let promise_json = await promise.json();
-    return promise_json;
+async function olvaso_fetch(url) {
+    let promise = await fetch(url)
+    let promise_json = await promise.json()
+    return promise_json
 }
-
 
 /*
 {

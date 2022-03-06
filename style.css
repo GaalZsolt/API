@@ -6,22 +6,59 @@
 
 /*HEADER*/
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
+}
+header #top-pic {
+    height: auto;
+    width: 100%;
 }
 
 /*NAGY_GRID_CONTAINER*/
 #nagy-grid-container {
     display: grid;
-    grid-template-columns: 33% 67%;
+    grid-template-columns: 40% auto;
 }
+#nagy-grid-container-left {
+}
+
+/* 1st FLEX ROW*/
+#left-first-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+/*PFP*/
+#first-flex-row-pfp > #img-container img {
+    border-radius: 50%;
+    height: 256px;
+    width: 256px;
+}
+#img-container {
+    position: fixed;
+}
+
+/*BASIC DATA*/
+#first-flex-row-basicdata {
+}
+
+/*2nd FLEX ROW*/
+#left-second-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+/*3rd FLEX ROW*/
 
 /*FOOTER*/
 footer {
     display: flex;
     flex-direction: row;
-    width: 100%;
     justify-content: space-between;
     position: fixed;
+    width: 100%;
     bottom: 0;
+
+    background-color: aqua;
 }
