@@ -6,8 +6,44 @@
 
 /*HEADER*/
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
+}
+header #top-pic{
+    width: 100%;
+    height: auto;
+}
+#first-flex-row-pfp img{
+    border-radius: 50%;
+    height:200%;
+    width:200%; 
+}
+#first-flex-row-pfp{
+    width: fit-content;
+    height: fit-content;
+}
+
+#left-first-flex-row{    
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+#first-flex-row-basicdata{
+    margin-left: 128px;
+    position: relative;
+    bottom: 10px;
+}
+
+#nagy-grid-container-left{
+    position: fixed;
+    left: 1%;
+    top: 2%;
+}
+#left-second-flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 /*NAGY_GRID_CONTAINER*/
@@ -24,4 +60,5 @@ footer {
     justify-content: space-between;
     position: fixed;
     bottom: 0;
+    background-color: aqua;
 }
