@@ -3,22 +3,19 @@ let picturecontent = '';
 let friendscontent = '';
 
 async function main(){
-    document.querySelector('#friends').addEventListener('click', generateFriends);
-    document.querySelector('#photos').addEventListener('click', generatePics);
     let szotar = (await olvaso_fetch('https://randomuser.me/api/')).results[0];
-    //<img src="' + szotar.picture.large + '" alt="pfp" id="pfp" />
-
+    
     let aktdiv = document.querySelector('#pfpdiv');
     aktdiv.innerHTML = '<img src="' + szotar.picture.large + '" alt="pfp" id="pfp" />';
     
     aktdiv = document.querySelector('#name');
-    aktdiv.innerHTML=szotar.name.title + " " + szotar.name.first + " " + szotar.name.last;
+    aktdiv.innerHTML = szotar.name.title + " " + szotar.name.first + " " + szotar.name.last;
     
     aktdiv = document.querySelector('#age');
-    aktdiv.innerHTML="(" + szotar.dob.age + ")";
-
+    aktdiv.innerHTML = "(" + szotar.dob.age + ")";
+    
     aktdiv = document.querySelector('#dob');
-    aktdiv.innerHTML=new Date(szotar.dob.date).toLocaleDateString();
+    aktdiv.innerHTML = new Date(szotar.dob.date).toLocaleDateString();
     
     aktdiv = document.querySelector('#email');
     aktdiv.innerHTML='email: <a href="mailto:' + szotar.email + '">' + szotar.email + '</a>';
@@ -33,13 +30,15 @@ async function main(){
     aktdiv = document.querySelector('#nat');
     aktdiv.innerHTML='<img src="https://flagcdn.com/h24/' + szotar.nat.toLowerCase() + '.png" alt="Flag"></img>';
     
+    document.querySelector('#friends').addEventListener('click', generateFriends);
+    document.querySelector('#photos').addEventListener('click', generatePics);
     await generatePics();
 }
 
 async function generateFriends(){
+    let content = document.querySelector('#content');
+    content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>';
     if (friendscontent == '') {
-        content = document.querySelector('#content');
-        content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>'
         let friends = '<div id="friendlist">';
         
         let friendNum = getRndInteger(4,35);
@@ -71,9 +70,9 @@ async function generateFriends(){
 }
 
 async function generatePics(){
+    let content = document.querySelector('#content');
+    content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>';
     if (picturecontent == '') {
-        content = document.querySelector('#content');
-        content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>'
         let pictures = '<div id="pictures">';
 
         let picNum = getRndInteger(4,35);
@@ -87,7 +86,6 @@ async function generatePics(){
     }
     content.innerHTML = picturecontent;
 }
-
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
