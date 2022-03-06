@@ -3,8 +3,6 @@ let picturecontent = '';
 let friendscontent = '';
 
 async function main(){
-    document.querySelector('#second-flex-row-friends').addEventListener('click', showFriends);
-    document.querySelector('#second-flex-row-pics').addEventListener('click', showPics);
     let szotar = (await olvaso_fetch('https://randomuser.me/api/')).results[0];
     
     
@@ -26,7 +24,11 @@ async function main(){
     
     await generatePics();
     await generateFriends();
+    document.querySelector('#second-flex-row-pics').addEventListener('click', showPics);
+    document.querySelector('#second-flex-row-friends').addEventListener('click', showFriends);
     showPics();
+    
+    
 }
 
 async function generateFriends(){
@@ -75,11 +77,15 @@ async function generatePics(){
 }
 function showFriends(){
     let content = document.querySelector('#nagy-grid-container-right');
-    content.innerHTML = friendscontent;
+    do {
+        content.innerHTML = friendscontent;
+    } while (friendscontent == '');
 }
 function showPics(){
     let content = document.querySelector('#nagy-grid-container-right');
-    content.innerHTML = picturecontent;
+    do {
+        content.innerHTML = picturecontent;
+    } while (picturecontent == '');
 }
 
 function getRndInteger(min, max) {
