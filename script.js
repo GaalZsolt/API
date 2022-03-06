@@ -3,42 +3,34 @@ let picturecontent = '';
 let friendscontent = '';
 
 async function main(){
-    document.querySelector('#friends').addEventListener('click', generateFriends);
-    document.querySelector('#photos').addEventListener('click', generatePics);
+    document.querySelector('#second-flex-row-friends').addEventListener('click', showFriends);
+    document.querySelector('#second-flex-row-pics').addEventListener('click', showPics);
     let szotar = (await olvaso_fetch('https://randomuser.me/api/')).results[0];
     
-
-    let aktdiv = document.querySelector('#pfp');
+    
+    let aktdiv = document.querySelector('header');
+    aktdiv.innerHTML = '<img src="' + (await fetch('https://picsum.photos/1920/200')).url + '" alt="Picture" id="top-pic">';
+    
+    aktdiv = document.querySelector('#first-flex-row-pfp>img');
     aktdiv.src = szotar.picture.large;
     
-    aktdiv = document.querySelector('#name');
-    aktdiv.innerHTML=szotar.name.title + " " + szotar.name.first + " " + szotar.name.last;
+    aktdiv = document.querySelector('#basicdata-namenage');
+    aktdiv.innerHTML= '<img src="https://flagcdn.com/h24/' + szotar.nat.toLowerCase() + '.png" alt="Flag"></img>' 
+    + szotar.name.title + ' ' + szotar.name.first + ' ' + szotar.name.last + ' (' + szotar.dob.age + ')';
     
-    aktdiv = document.querySelector('#age');
-    aktdiv.innerHTML="(" + szotar.dob.age + ")";
-
-    aktdiv = document.querySelector('#dob');
-    aktdiv.innerHTML=new Date(szotar.dob.date).toLocaleDateString();
-    
-    aktdiv = document.querySelector('#email');
+    aktdiv = document.querySelector('#basicdata-email');
     aktdiv.innerHTML='email: <a href="mailto:' + szotar.email + '">' + szotar.email + '</a>';
     
-    aktdiv = document.querySelector('#bio');
-    aktdiv.innerHTML='I am ' + szotar.name.first + " " + szotar.name.last + ', a(n) ' + szotar.dob.age + ' years old ' + (szotar.gender == 'male' ? 'man' : 'lady') +
-    ' from ' + szotar.location.city + ' in ' + szotar.location.state + ', ' + szotar.location.country + '.';
-    
-    aktdiv = document.querySelector('#mobile');
+    aktdiv = document.querySelector('#basicdata-mobile');
     aktdiv.innerHTML="mobile: " + szotar.cell;
     
-    aktdiv = document.querySelector('#nat');
-    aktdiv.innerHTML='<img src="https://flagcdn.com/h24/' + szotar.nat.toLowerCase() + '.png" alt="Flag"></img>';
-    
     await generatePics();
+    await generateFriends();
+    showPics();
 }
 
 async function generateFriends(){
     if (friendscontent == '') {
-        content = document.querySelector('#content');
         let friends = '<div id="friendlist">';
         
         let friendNum = getRndInteger(4,35);
@@ -66,12 +58,9 @@ async function generateFriends(){
         friends += '</div>';
         friendscontent = friends;
     }
-    content.innerHTML = friendscontent;
 }
-
 async function generatePics(){
     if (picturecontent == '') {
-        content = document.querySelector('#content');
         let pictures = '<div id="pictures">';
 
         let picNum = getRndInteger(4,35);
@@ -83,9 +72,15 @@ async function generatePics(){
         pictures += '</div>';
         picturecontent = pictures;
     }
+}
+function showFriends(){
+    let content = document.querySelector('#nagy-grid-container-right');
+    content.innerHTML = friendscontent;
+}
+function showPics(){
+    let content = document.querySelector('#nagy-grid-container-right');
     content.innerHTML = picturecontent;
 }
-
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
