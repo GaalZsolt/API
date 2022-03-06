@@ -7,7 +7,7 @@ body {
 }
 
 #nagy-flex-container {
-    margin-top: 30px;
+    margin: 30px 0px 30px 0px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -101,7 +101,7 @@ body {
     padding: 0.2%;
     border: 5px solid black;
     border-radius: 10px;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
 }
 #nagy-flex-container > #content > #loadingdiv {
     display: flex;
@@ -116,13 +116,16 @@ body {
     gap: 5px;
 }
 #nagy-flex-container > #content > #friendlist {
-    display: grid;
-    grid-template-columns: 49% 49%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 2%;
+    align-content: center;
+    gap: 5%;
 }
 #nagy-flex-container > #content .friend {
     display: flex;
+    width: 40%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;

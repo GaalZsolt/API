@@ -6,10 +6,10 @@ async function main(){
     document.querySelector('#friends').addEventListener('click', generateFriends);
     document.querySelector('#photos').addEventListener('click', generatePics);
     let szotar = (await olvaso_fetch('https://randomuser.me/api/')).results[0];
-    
+    //<img src="' + szotar.picture.large + '" alt="pfp" id="pfp" />
 
-    let aktdiv = document.querySelector('#pfp');
-    aktdiv.src = szotar.picture.large;
+    let aktdiv = document.querySelector('#pfpdiv');
+    aktdiv.innerHTML = '<img src="' + szotar.picture.large + '" alt="pfp" id="pfp" />';
     
     aktdiv = document.querySelector('#name');
     aktdiv.innerHTML=szotar.name.title + " " + szotar.name.first + " " + szotar.name.last;
