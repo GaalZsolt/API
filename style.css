@@ -3,9 +3,11 @@
     margin: 0;
     padding: 0;
 }
-body {
+body{
     background-color: lightcyan;
+    overflow-y: scroll;
 }
+
 /* FLEX SETTINGS */
 .flex-column{
     display: flex;
@@ -30,8 +32,14 @@ body {
     border-radius: 10px;
 }
 
-#nagy-flex-container {
-    margin: 30px 0px 80px 0px;
+/* HEADER */
+header{
+    height: 220px;
+    width: 100%;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    background-color: lightsteelblue;
 }
 
 /* ABOUT */
@@ -86,7 +94,7 @@ nav a:active {
 
 /* CONTENT */
 #content {
-    margin: 0% 10% 0% 10%;
+    margin: 250px 10% 80px 10%;
     padding: 0.2%;
 }
 #content .friend {
@@ -99,6 +107,9 @@ nav a:active {
     background-color: cadetblue;
     border: 2px solid black;
     border-radius: 7px;
+}
+#picturelist{
+    padding: 0 10% 0 10%;
 }
 /* FOOTER */
 footer{
@@ -125,7 +136,7 @@ footer .mail:hover{
     margin: 3px 0 3px 0;
 }
 #email>.mail:hover,
-#nagy-grid-container .mail:hover,
+#content .mail:hover,
 nav a:hover{
     color: blue;
     background-color: aqua;
