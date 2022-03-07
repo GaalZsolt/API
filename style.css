@@ -22,6 +22,7 @@ body {
     justify-content: center;
     align-content: center;
 }
+
 /* DESIGN SETTINGS */
 .container-design{
     background-color: lightslategray;
@@ -32,29 +33,29 @@ body {
 #nagy-flex-container {
     margin: 30px 0px 30px 0px;
 }
-/* ------------------------------------------------------------------------------------------------ */
+
 /* ABOUT */
-#nagy-flex-container > #about {
+#about {
     margin: 0% 15% 0% 15%;
     padding: 0.2%;
 }
-#nagy-flex-container > #about > #pfpdiv {
+#about #pfpdiv {
     align-self: center;
 }
-#nagy-flex-container > #about > #details {
+#about #details {
     flex-grow: 1;
 }
-#nagy-flex-container > #about > #details > #personal-data {
+#details #personal-data {
     justify-content: space-between;
 }
-#nagy-flex-container > #about > #details > #personal-data > #left {
+#details #personal-data #left {
     align-items: flex-end;
     gap: 3px;
 }
-#nagy-flex-container > #about > #details > #personal-data > #left > #name {
+#details > #personal-data > #left > #name {
     font-size: x-large;
 }
-#nagy-flex-container > #about > #details > #personal-data > #dob {
+#details > #personal-data > #dob {
     align-self: flex-end;
     font-size: large;
 }
@@ -62,6 +63,7 @@ body {
 /* NAV BAR */
 nav {
     justify-content: space-evenly;
+
     margin: 0% 20% 0% 20%;
     padding: 0.2%;
 }
@@ -69,8 +71,6 @@ nav > div {
     width: 50%;
     text-align: center;
     font-size: large;
-    color: black;
-    text-decoration: none;
 }
 nav a,
 nav a:visited,
@@ -78,9 +78,10 @@ nav a:active {
     display: inline-block;
     height: 100%;
     width: 100%;
+
+    color: black;
+    text-decoration: none;
     border-radius: 10px;
-    color: inherit;
-    text-decoration: inherit;
 }
 
 /* CONTENT */
@@ -93,13 +94,13 @@ nav a:active {
     justify-content: space-between;
     align-items: center;
     
-    background-color: cadetblue;
     margin: 5px;
     padding: 5px;
+    background-color: cadetblue;
     border: 2px solid black;
     border-radius: 7px;
 }
-/* ------------------------------------------------------------------------------------------------------------- */
+
 /* EMAILS */
 #email{
     margin: 3px 0 3px 0;
