@@ -31,7 +31,7 @@ body {
 }
 
 #nagy-flex-container {
-    margin: 30px 0px 30px 0px;
+    margin: 30px 0px 80px 0px;
 }
 
 /* ABOUT */
@@ -100,13 +100,32 @@ nav a:active {
     border: 2px solid black;
     border-radius: 7px;
 }
+/* FOOTER */
+footer{
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: lightsteelblue;
+}
+footer div{
+    background-color: lightgreen;
+    padding: 10px 5% 10px 5%;
+    border-radius: 5px;
+}
+footer .mail:hover{
+    color: blue;
+    transition: 200ms;
+}
 
 /* EMAILS */
 #email{
     margin: 3px 0 3px 0;
 }
 #email>.mail:hover,
-.mail:hover,
+#nagy-grid-container .mail:hover,
 nav a:hover{
     color: blue;
     background-color: aqua;
