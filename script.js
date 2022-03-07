@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', main)
-let picturecontent = '';
-let friendscontent = '';
+let pictureContent = '';
+let friendsContent = '';
+let picsActive = false;
 
 async function main(){
     let szotar = (await olvaso_fetch('https://randomuser.me/api/')).results[0];
@@ -43,8 +44,9 @@ async function main(){
 }
 
 async function generateFriends(){
+    picsActive = false;
     let content = document.querySelector('#content');
-    if (friendscontent == '') {
+    if (friendsContent == '') {
         content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>';
         
         let friends = '<div id="friendlist">';
@@ -71,14 +73,17 @@ async function generateFriends(){
             friends += '</div>';
         }
         friends += '</div>';
-        friendscontent = friends;
+        friendsContent = friends;
     }
-    content.innerHTML = friendscontent;
+    if (!picsActive) {
+        content.innerHTML = friendsContent;
+    }
 }
 
 async function generatePics(){
+    picsActive = true;
     let content = document.querySelector('#content');
-    if (picturecontent == '') {
+    if (pictureContent == '') {
         content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>';
         
         let pictures = '<div id="pictures">';
@@ -89,9 +94,9 @@ async function generatePics(){
         }
 
         pictures += '</div>';
-        picturecontent = pictures;
+        pictureContent = pictures;
     }
-    content.innerHTML = picturecontent;
+    content.innerHTML = pictureContent;
 }
 
 function getRndInteger(min, max) {
