@@ -49,11 +49,16 @@ body {
 #nagy-flex-container > #about > #details > #reach a:active {
     color: black;
     text-decoration: none;
+    padding: 3px;
+    border-radius: 4px;
+}
+#email{
+    margin: 2px;
 }
 #nagy-flex-container > #about > #details > #reach a:hover {
-    color: darkblue;
+    color: blue;
     background-color: aqua;
-    transition: 500ms;
+    transition: 800ms;
 }
 #nagy-flex-container > #about > #details > #personal-data > #left > #name {
     font-size: x-large;
@@ -87,7 +92,7 @@ nav a:active {
     display: inline-block;
     height: 100%;
     width: 100%;
-    
+
     color: inherit;
     text-decoration: inherit;
 }
@@ -127,10 +132,29 @@ nav a:hover {
     align-content: center;
     gap: 5%;
 }
+#friendlist a,
+#friendlist a:visited,
+#friendlist a:active {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+#friendlist a:hover{
+    color: blue;
+    background-color: aqua;
+    transition: 800ms;
+}
 #nagy-flex-container > #content .friend {
     display: flex;
     width: 40%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    background-color: cadetblue;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 7px;
 }
