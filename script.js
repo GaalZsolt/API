@@ -19,7 +19,7 @@ async function main(){
     aktdiv.innerHTML = new Date(szotar.dob.date).toLocaleDateString();
     
     aktdiv = document.querySelector('#email');
-    aktdiv.innerHTML='email: <a href="mailto:' + szotar.email + '">' + szotar.email + '</a>';
+    aktdiv.innerHTML='email: <a href="mailto:' + szotar.email + '" class="mail">' + szotar.email + '</a>';
     
     aktdiv = document.querySelector('#bio');
     aktdiv.innerHTML='I am ' + szotar.name.first + " " + szotar.name.last + ', a(n) ' + szotar.dob.age + ' years old ' + (szotar.gender == 'male' ? 'man' : 'lady') +
@@ -47,27 +47,27 @@ async function generateFriends(){
     picsActive = false;
     let content = document.querySelector('#content');
     if (friendsContent == '') {
-        content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>';
-        
-        let friends = '<div id="friendlist">';
+        content.innerHTML = '<div class="loadingdiv flex-row"> <img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading"></div>';
+
+        let friends = '<div id="friendlist" class="flex-row">';
         let friendNum = getRndInteger(4,35);
 
         for (let i = 0; i < friendNum; i++) {
             
             let candidate = (await olvaso_fetch('https://randomuser.me/api/')).results[0];
         
-            friends += '<div class="friend">';
+            friends += '<div class="friend flex-row">';
             
-                friends += '<div class="thumbnail">';
+                friends += '<div>';
                 friends += '<img src="' + candidate.picture.thumbnail + '" alt="Thumbnail"></img>';
                 friends += '</div>';
     
-                friends += '<div class="name">';
+                friends += '<div>';
                 friends += candidate.name.first + " " + candidate.name.last;
                 friends += '</div>';
     
-                friends += '<div class="email">';
-                friends += '<a href="mailto:' + candidate.email + '">' + candidate.email + '</a>';
+                friends += '<div>';
+                friends += '<a href="mailto:' + candidate.email + '" class="mail">' + candidate.email + '</a>';
                 friends += '</div>';
             
             friends += '</div>';
@@ -84,9 +84,9 @@ async function generatePics(){
     picsActive = true;
     let content = document.querySelector('#content');
     if (pictureContent == '') {
-        content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>';
+        content.innerHTML = '<div class="loadingdiv flex-row"> <img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading"></div>';
         
-        let pictures = '<div id="pictures">';
+        let pictures = '<div id="pictures" class="flex-row">';
         let picNum = getRndInteger(4,35);
 
         for (let i = 0; i < picNum; i++) {

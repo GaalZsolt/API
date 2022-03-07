@@ -1,4 +1,5 @@
-* GENERAL */ * {
+/* GENERAL */ 
+* {
     margin: 0;
     padding: 0;
 }
@@ -6,19 +7,23 @@ body {
     background-color: lightcyan;
 }
 
-#nagy-flex-container {
-    margin: 30px 0px 30px 0px;
+.flex-column{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-
-/* ABOUT */
-#nagy-flex-container > #about {
+.flex-row{
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
 
+#nagy-flex-container {
+    margin: 30px 0px 30px 0px;
+}
+
+/* ABOUT */
+#nagy-flex-container > #about {
     background-color: lightslategray;
     margin: 0% 15% 0% 15%;
     padding: 0.2%;
@@ -29,36 +34,14 @@ body {
     align-self: center;
 }
 #nagy-flex-container > #about > #details {
-    display: flex;
-    flex-direction: column;
     flex-grow: 1;
-    gap: 10px;
 }
 #nagy-flex-container > #about > #details > #personal-data {
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 #nagy-flex-container > #about > #details > #personal-data > #left {
-    display: flex;
-    flex-direction: row;
     align-items: flex-end;
-}
-#nagy-flex-container > #about > #details > #reach a,
-#nagy-flex-container > #about > #details > #reach a:visited,
-#nagy-flex-container > #about > #details > #reach a:active {
-    color: black;
-    text-decoration: none;
-    padding: 3px;
-    border-radius: 4px;
-}
-#email{
-    margin: 2px;
-}
-#nagy-flex-container > #about > #details > #reach a:hover {
-    color: blue;
-    background-color: aqua;
-    transition: 800ms;
+    gap: 3px;
 }
 #nagy-flex-container > #about > #details > #personal-data > #left > #name {
     font-size: x-large;
@@ -70,9 +53,8 @@ body {
 
 /* NAV BAR */
 nav {
-    display: flex;
     justify-content: space-evenly;
-
+    
     background-color: lightslategray;
     margin: 0% 20% 0% 20%;
     padding: 0.2%;
@@ -92,7 +74,7 @@ nav a:active {
     display: inline-block;
     height: 100%;
     width: 100%;
-
+    
     color: inherit;
     text-decoration: inherit;
 }
@@ -110,51 +92,55 @@ nav a:hover {
     padding: 0.2%;
     border: 5px solid black;
     border-radius: 10px;
-    /*overflow-y: scroll;*/
 }
-#nagy-flex-container > #content > #loadingdiv {
-    display: flex;
+.loadingdiv {
     align-content: center;
     justify-content: center;
 }
 #nagy-flex-container > #content > #pictures {
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    gap: 5px;
 }
 #nagy-flex-container > #content > #friendlist {
-    display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    gap: 5%;
-}
-#friendlist a,
-#friendlist a:visited,
-#friendlist a:active {
-    color: black;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 10px;
-}
-#friendlist a:hover{
-    color: blue;
-    background-color: aqua;
-    transition: 800ms;
 }
 #nagy-flex-container > #content .friend {
-    display: flex;
-    width: 40%;
-    flex-direction: row;
+    width: 35%;
     justify-content: space-between;
     align-items: center;
-
+    
     background-color: cadetblue;
     margin: 5px;
     padding: 5px;
     border: 2px solid black;
     border-radius: 7px;
+}
+
+/* EMAILS */
+#email{
+    margin: 3px 0 3px 0;
+}
+#email>.mail:hover, .mail:hover{
+    color: blue;
+    background-color: aqua;
+    transition: 800ms;
+}
+.mail,
+.mail:visited,
+.mail:active {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+#email>.mail,
+#email>.mail:visited,
+#email>.mail:active {
+    color: black;
+    text-decoration: none;
+    padding: 3px;
+    border-radius: 4px;
 }
