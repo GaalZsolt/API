@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', main)
 let picturecontent = '';
 let friendscontent = '';
+let picsactive = false;
 
 async function main(){
     let szotar = (await olvaso_fetch('https://randomuser.me/api/')).results[0];
@@ -31,11 +32,19 @@ async function main(){
     aktdiv.innerHTML='<img src="https://flagcdn.com/h24/' + szotar.nat.toLowerCase() + '.png" alt="Flag"></img>';
     
     await generatePics();
-    document.querySelector('#friends').addEventListener('click', generateFriends);
-    document.querySelector('#photos').addEventListener('click', generatePics);
+
+    aktdiv = document.querySelector('#photos');
+    aktdiv.innerHTML = '<a href="#">photos</a>';
+    
+    aktdiv = document.querySelector('#friends');
+    aktdiv.innerHTML = '<a href="#">friends</a>';
+    
+    document.querySelector('#friends>a').addEventListener('click', generateFriends);
+    document.querySelector('#photos>a').addEventListener('click', generatePics);
 }
 
 async function generateFriends(){
+    picsactive = false;
     let content = document.querySelector('#content');
     content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>';
     if (friendscontent == '') {
@@ -66,10 +75,13 @@ async function generateFriends(){
         friends += '</div>';
         friendscontent = friends;
     }
-    content.innerHTML = friendscontent;
+    if (!picsactive) {
+        content.innerHTML = friendscontent;
+    }
 }
 
 async function generatePics(){
+    picsactive = true;
     let content = document.querySelector('#content');
     content.innerHTML = '<div id="loadingdiv"><img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading" class="loading"></div>';
     if (picturecontent == '') {
