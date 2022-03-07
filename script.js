@@ -30,9 +30,9 @@ async function main(){
     aktdiv = document.querySelector('#nat');
     aktdiv.innerHTML='<img src="https://flagcdn.com/h24/' + szotar.nat.toLowerCase() + '.png" alt="Flag"></img>';
     
+    await generatePics();
     document.querySelector('#friends').addEventListener('click', generateFriends);
     document.querySelector('#photos').addEventListener('click', generatePics);
-    await generatePics();
 }
 
 async function generateFriends(){
