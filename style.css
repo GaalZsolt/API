@@ -6,7 +6,7 @@
 body {
     background-color: lightcyan;
 }
-
+/* FLEX SETTINGS */
 .flex-column{
     display: flex;
     flex-direction: column;
@@ -17,18 +17,26 @@ body {
     flex-direction: row;
     gap: 10px;
 }
+.flex-wrapped-all-center{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+/* DESIGN SETTINGS */
+.container-design{
+    background-color: lightslategray;
+    border: 5px solid black;
+    border-radius: 10px;
+}
 
 #nagy-flex-container {
     margin: 30px 0px 30px 0px;
 }
-
+/* ------------------------------------------------------------------------------------------------ */
 /* ABOUT */
 #nagy-flex-container > #about {
-    background-color: lightslategray;
     margin: 0% 15% 0% 15%;
     padding: 0.2%;
-    border: 5px solid black;
-    border-radius: 10px;
 }
 #nagy-flex-container > #about > #pfpdiv {
     align-self: center;
@@ -54,12 +62,8 @@ body {
 /* NAV BAR */
 nav {
     justify-content: space-evenly;
-    
-    background-color: lightslategray;
     margin: 0% 20% 0% 20%;
     padding: 0.2%;
-    border: 5px solid black;
-    border-radius: 10px;
 }
 nav > div {
     width: 50%;
@@ -74,40 +78,17 @@ nav a:active {
     display: inline-block;
     height: 100%;
     width: 100%;
-    
+    border-radius: 10px;
     color: inherit;
     text-decoration: inherit;
 }
-nav a:hover {
-    color: blue;
-    background-color: aqua;
-    border-radius: 10px;
-    transition: 800ms;
-}
 
 /* CONTENT */
-#nagy-flex-container > #content {
-    background-color: lightslategray;
+#content {
     margin: 0% 10% 0% 10%;
     padding: 0.2%;
-    border: 5px solid black;
-    border-radius: 10px;
 }
-.loadingdiv {
-    align-content: center;
-    justify-content: center;
-}
-#nagy-flex-container > #content > #pictures {
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-}
-#nagy-flex-container > #content > #friendlist {
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-}
-#nagy-flex-container > #content .friend {
+#content .friend {
     width: 35%;
     justify-content: space-between;
     align-items: center;
@@ -118,12 +99,14 @@ nav a:hover {
     border: 2px solid black;
     border-radius: 7px;
 }
-
+/* ------------------------------------------------------------------------------------------------------------- */
 /* EMAILS */
 #email{
     margin: 3px 0 3px 0;
 }
-#email>.mail:hover, .mail:hover{
+#email>.mail:hover,
+.mail:hover,
+nav a:hover{
     color: blue;
     background-color: aqua;
     transition: 800ms;

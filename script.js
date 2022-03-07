@@ -47,9 +47,9 @@ async function generateFriends(){
     picsActive = false;
     let content = document.querySelector('#content');
     if (friendsContent == '') {
-        content.innerHTML = '<div class="loadingdiv flex-row"> <img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading"></div>';
+        content.innerHTML = '<div class="flex-wrapped-all-center flex-row"> <img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading"></div>';
 
-        let friends = '<div id="friendlist" class="flex-row">';
+        let friends = '<div id="friendlist" class="flex-row flex-wrapped-all-center">';
         let friendNum = getRndInteger(4,35);
 
         for (let i = 0; i < friendNum; i++) {
@@ -84,9 +84,9 @@ async function generatePics(){
     picsActive = true;
     let content = document.querySelector('#content');
     if (pictureContent == '') {
-        content.innerHTML = '<div class="loadingdiv flex-row"> <img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading"></div>';
+        content.innerHTML = '<div class="flex-wrapped-all-center flex-row"> <img src="https://i.stack.imgur.com/MnyxU.gif" alt="Loading"></div>';
         
-        let pictures = '<div id="pictures" class="flex-row">';
+        let pictures = '<div id="picturelist" class="flex-row flex-wrapped-all-center">';
         let picNum = getRndInteger(4,35);
 
         for (let i = 0; i < picNum; i++) {
